@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "AADProfile specifies attributes for Azure Active Directory integration.",
+            "properties": {
+                "clientAppID": {
+                    "description": "The client AAD application ID.",
+                    "type": "string"
+                },
+                "serverAppID": {
+                    "description": "The server AAD application ID.",
+                    "type": "string"
+                },
+                "serverAppSecret": {
+                    "description": "The server AAD application secret.",
+                    "type": "string"
+                },
+                "tenantID": {
+                    "description": "The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientAppID",
+                "serverAppID"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

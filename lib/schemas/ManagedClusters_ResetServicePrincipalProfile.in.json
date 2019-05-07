@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Information about a service principal identity for the cluster to use for manipulating Azure APIs.",
+            "properties": {
+                "clientId": {
+                    "description": "The ID for the service principal.",
+                    "type": "string"
+                },
+                "secret": {
+                    "description": "The secret password associated with the service principal in plain text.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clientId"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

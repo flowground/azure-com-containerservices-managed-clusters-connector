@@ -1,0 +1,271 @@
+{
+    "title": "ContainerServiceClient",
+    "description": "The Container Service Client.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/containerservices-managedClusters/2018-08-01-preview/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Operations_List": {
+            "main": "./lib/actions/Operations_List.js",
+            "title": "Gets a list of compute operations.",
+            "description": "Gets a list of compute operations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Operations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ManagedClusters_List": {
+            "main": "./lib/actions/ManagedClusters_List.js",
+            "title": "Gets a list of managed clusters in the specified subscription.",
+            "description": "Gets a list of managed clusters in the specified subscription. The operation returns properties of each managed cluster.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ManagedClusters_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ManagedClusters_ListByResourceGroup": {
+            "main": "./lib/actions/ManagedClusters_ListByResourceGroup.js",
+            "title": "Lists managed clusters in the specified subscription and resource group.",
+            "description": "Lists managed clusters in the specified subscription and resource group. The operation returns properties of each managed cluster.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ManagedClusters_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ManagedClusters_Delete": {
+            "main": "./lib/actions/ManagedClusters_Delete.js",
+            "title": "Deletes a managed cluster.",
+            "description": "Deletes the managed cluster with a specified resource group and name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ManagedClusters_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ManagedClusters_Get": {
+            "main": "./lib/actions/ManagedClusters_Get.js",
+            "title": "Gets a managed cluster.",
+            "description": "Gets the details of the managed cluster with a specified resource group and name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ManagedClusters_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ManagedClusters_UpdateTags": {
+            "main": "./lib/actions/ManagedClusters_UpdateTags.js",
+            "title": "Updates tags on a managed cluster.",
+            "description": "Updates a managed cluster with the specified tags.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ManagedClusters_UpdateTags.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ManagedClusters_CreateOrUpdate": {
+            "main": "./lib/actions/ManagedClusters_CreateOrUpdate.js",
+            "title": "Creates or updates a managed cluster.",
+            "description": "Creates or updates a managed cluster with the specified configuration for agents and Kubernetes version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ManagedClusters_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ManagedClusters_GetAccessProfile": {
+            "main": "./lib/actions/ManagedClusters_GetAccessProfile.js",
+            "title": "Gets an access profile of a managed cluster.",
+            "description": "Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ManagedClusters_GetAccessProfile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ManagedClusters_ListClusterAdminCredentials": {
+            "main": "./lib/actions/ManagedClusters_ListClusterAdminCredentials.js",
+            "title": "Gets cluster admin credential of a managed cluster.",
+            "description": "Gets cluster admin credential of the managed cluster with a specified resource group and name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ManagedClusters_ListClusterAdminCredentials.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ManagedClusters_ListClusterUserCredentials": {
+            "main": "./lib/actions/ManagedClusters_ListClusterUserCredentials.js",
+            "title": "Gets cluster user credential of a managed cluster.",
+            "description": "Gets cluster user credential of the managed cluster with a specified resource group and name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ManagedClusters_ListClusterUserCredentials.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ManagedClusters_ResetAADProfile": {
+            "main": "./lib/actions/ManagedClusters_ResetAADProfile.js",
+            "title": "Reset AAD Profile of a managed cluster.",
+            "description": "Update the AAD Profile for a managed cluster.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ManagedClusters_ResetAADProfile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ManagedClusters_ResetServicePrincipalProfile": {
+            "main": "./lib/actions/ManagedClusters_ResetServicePrincipalProfile.js",
+            "title": "Reset Service Principal Profile of a managed cluster.",
+            "description": "Update the service principal Profile for a managed cluster.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ManagedClusters_ResetServicePrincipalProfile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ManagedClusters_GetUpgradeProfile": {
+            "main": "./lib/actions/ManagedClusters_GetUpgradeProfile.js",
+            "title": "Gets upgrade profile for a managed cluster.",
+            "description": "Gets the details of the upgrade profile for a managed cluster with a specified resource group and name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ManagedClusters_GetUpgradeProfile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
